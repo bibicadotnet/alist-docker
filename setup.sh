@@ -23,3 +23,9 @@ nohup /usr/local/bin/bypass_oracle.sh >> ./out 2>&1 <&- &
 crontab -l > bypass_oracle
 echo "@reboot nohup /usr/local/bin/bypass_oracle.sh >> ./out 2>&1 <&- &" >> bypass_oracle
 crontab bypass_oracle
+
+wget https://raw.githubusercontent.com/bibicadotnet/alist-docker/main/docker-compose.yml
+
+docker-compose up -d --build --remove-orphans --force-recreate
+
+docker exec -it alist ./alist admin random
